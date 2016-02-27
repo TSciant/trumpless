@@ -66,15 +66,41 @@ function replaceName()
 
 	
 	$("body *").contents().each(
-  function() 
+	function() 
+	  {
+	      if(this.nodeType==3)
+	      {
+	        this.nodeValue = this.nodeValue.replace(/Trump/g, rndName)
+	      }
+	  })
+  
+  
+  $('img').each(
+  function()
   {
-      if(this.nodeType==3)
-      {
-        this.nodeValue = this.nodeValue.replace(/Trump/g, rndName)
-      }
+    if($(this).attr('alt')!=undefined)
+    {
+    var obj = $(this).attr('alt');
+    var str = obj.toString();
+    var subst = "Trump";
+    if (str.indexOf(subst) >= 0) 
+    {
+      console.log($(this).attr('src') + "is a trump image");
+      $(this).attr('src','https://media.giphy.com/media/10sovHz3ZrhyQo/giphy.gif')
+    }
+    }
+	
+	
+	
+	
   })
-
+  
+  
 }
+
+
+
+           
 
 
 
