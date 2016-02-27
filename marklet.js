@@ -1,0 +1,1 @@
+javascript:(function(){varjsCode=document.createElement('script');jsCode.setAttribute('src','http://tsciant.com/trumpless.js');document.body.appendChild(jsCode);}());

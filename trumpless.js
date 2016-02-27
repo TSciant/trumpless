@@ -1,3 +1,6 @@
+
+
+
 var dict =
 {
 	"dictionary": {
@@ -21,6 +24,13 @@ var dict =
 	}
 }
 
+if(typeof jQuery == 'undefined' || typeof $ == 'undefined') 
+{
+	loadjscssfile('https://code.jquery.com/jquery-2.2.1.min.js','js')	
+	setTimeout(function() {replaceName(); }, 5000);
+}else{
+   replaceName()
+}
 
 function loadjscssfile(filename, filetype){
     if (filetype=="js"){ //if filename is a external JavaScript file
@@ -39,27 +49,32 @@ function loadjscssfile(filename, filetype){
         document.getElementsByTagName("head")[0].appendChild(fileref)
 }
 
-function getRand(bottom, top) {
-    return function() {
-        return Math.floor( Math.random() * ( 1 + top - bottom ) ) + bottom;
-    }
+function getRand(bottom, top) 
+{
+   
+    return Math.floor( Math.random() * ( 1 + top - bottom ) ) + bottom;
+    
 }
+
+
+
+
 
 function replaceName()
 {
+  
 	var min = 0;
 	var max = dict.dictionary.lastNames.name.length -1;
-	ndx = getRand(min,max);
+	var rnd = getRand(min,max);
+  var rndName= dict.dictionary.lastNames.name[rnd];
+
 	
-	console.log(dict.dictionary.lastNames.name[ndx])
 	$("body *").contents().each(
   function() 
   {
-	  
-	  
       if(this.nodeType==3)
       {
-        this.nodeValue = this.nodeValue.replace(/Trump/g, 'Rump')
+        this.nodeValue = this.nodeValue.replace(/Trump/g, rndName)
       }
   })
 
@@ -67,4 +82,5 @@ function replaceName()
 
 
 
-loadjscssfile('https://code.jquery.com/jquery-2.2.1.min.js','js')
+
+
