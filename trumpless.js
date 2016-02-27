@@ -1,6 +1,4 @@
 
-
-
 var dict =
 {
 	"dictionary": {
@@ -51,9 +49,7 @@ function loadjscssfile(filename, filetype){
 
 function getRand(bottom, top) 
 {
-   
-    return Math.floor( Math.random() * ( 1 + top - bottom ) ) + bottom;
-    
+    return Math.floor( Math.random() * ( 1 + top - bottom ) ) + bottom;   
 }
 
 
@@ -66,7 +62,7 @@ function replaceName()
 	var min = 0;
 	var max = dict.dictionary.lastNames.name.length -1;
 	var rnd = getRand(min,max);
-  var rndName= dict.dictionary.lastNames.name[rnd];
+    var rndName= dict.dictionary.lastNames.name[rnd];
 
 	
 	$("body *").contents().each(
